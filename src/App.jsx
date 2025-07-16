@@ -1,16 +1,22 @@
+import React, { useState } from 'react'
 import Button from "./components/Button";
 import Text from "./components/Text";     //text bileşeni içe ekledik böylece
 
 
 function App() {
-  //props
+ // let name = "react"  
+const [name, setName] = useState("react");
+//const [degisken, degiskeni setlemek istedigin fonksiyon] 
+  const clisckFunc = () => {
+    console.log("click işlemi yapıldı...")
+    setName("React değişti") // Artık click yapınca name değişkeni "React değişti" olarak güncellenecek
+  }
   return (
-    <>                   
-      <Text number="1" name={"React"}/>  
-      <Text number="2" name={"Reactt"}/>
-      <Text number="3" name={"Reacttt"}/>
-      <Button name={"Artır"} />
-      <Button name={"Azalt"} />
+    <>
+    <div onClick={clisckFunc}>
+      {name}
+      </div>                   
+      
     </>
   )                     
 }
