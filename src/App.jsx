@@ -1,24 +1,20 @@
 import React, { useState } from 'react'
-import Button from "./components/Button";
+import Button from "./components/Button"; //button bileşeni içe ekledik böylece
 import Text from "./components/Text";     //text bileşeni içe ekledik böylece
 
 
 function App() {
  // let name = "react"  
-const [name, setName] = useState("react");
-//const [degisken, degiskeni setlemek istedigin fonksiyon] 
-  const clisckFunc = () => {
-    console.log("click işlemi yapıldı...")
-    setName("React değişti") // Artık click yapınca name değişkeni "React değişti" olarak güncellenecek
-  }
+const [count, setCount] = useState(0);
+
   return (
     <>
-    <div onClick={clisckFunc}>
-      {name}
-      </div>                   
-      
+    <Button name={"Azalt"} onClick={() => setCount(count - 1)} /> 
+    {/*<button onClick={decrement}>Azalt</button>*/}
+    <div>{count}</div>
+    <button onClick={() => setCount(count + 1)}>Artır</button>
     </>
   )                     
-}
 
+}
 export default App
