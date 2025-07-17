@@ -4,15 +4,26 @@ import Text from "./components/Text";     //text bileşeni içe ekledik böylece
 
 
 function App() {
- // let name = "react"  
-const [count, setCount] = useState(0);
+ 
+const [name, setName] = useState("null")
+const [data, setData] = useState("null")
 
+console.log(name, "name")
+
+const targetFunc = (e) => {
+  console.log(e,"e")
+  setName(e.target.value)
+}
+const clickFunc = () => {
+setData(name)
+}
   return (
     <>
-    <Button name={"Azalt"} onClick={() => setCount(count - 1)} /> 
-    {/*<button onClick={decrement}>Azalt</button>*/}
-    <div>{count}</div>
-    <button onClick={() => setCount(count + 1)}>Artır</button>
+   <input type="text" onChange={targetFunc} />
+   <button onClick={clickFunc}>Tıkla</button>
+   <div> 
+   {data}
+   </div>
     </>
   )                     
 
