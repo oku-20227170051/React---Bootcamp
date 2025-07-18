@@ -1,36 +1,24 @@
-import React, { useState } from 'react'
-import Button from "./components/Button"; //button bileşeni içe ekledik böylece
-import Text from "./components/Text";     //text bileşeni içe ekledik böylece
-
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+ } from 'react-router-dom';
+import Home from './pages/Home';
+import Detail from './pages/Detail';
 function App() {
  
-const [name, setName] = useState("null")
-const [data, setData] = useState([])
-
-console.log(name, "name")
-
-const targetFunc = (e) => {
-  console.log(e,"e")
-  setName(e.target.value)
-}
-const clickFunc = () => {
-setData(prev => ([...prev, name]))
-}
-console.log(data, "data")
   return (
     <>
-   <input type="text" onChange={targetFunc} />
-   <button onClick={clickFunc}>Tıkla</button>
-   <div> 
-  {
-  data.map((dt,i) =>
-    <div key={i}>{dt}</div>
-  )
-   }
-   </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/detail" element={<Detail />} />
+        </Routes>
+      </Router>
     </>
-  )                     
-
+  )
 }
+
 export default App
+
+       
